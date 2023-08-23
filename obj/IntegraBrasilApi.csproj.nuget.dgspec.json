@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj": {}
+    "D:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj": {}
   },
   "projects": {
-    "d:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj": {
+    "D:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj",
+        "projectUniqueName": "D:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj",
         "projectName": "IntegraBrasilApi",
-        "projectPath": "d:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj",
+        "projectPath": "D:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\IntegraBrasilApi.csproj",
         "packagesPath": "C:\\Users\\ffirm\\.nuget\\packages\\",
-        "outputPath": "d:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\obj\\",
+        "outputPath": "D:\\Pessoal\\Estudos\\Cursos\\Outros\\IntegraBrasilApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -79,5 +79,54 @@ namespace IntegraBrasilApi.Rest
             }
             return response;
         }
+
+        public async Task<ResponseGenerico<List<TaxasModel>>> BuscarTodasTaxas()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/taxas/v1");
+            
+            var response = new ResponseGenerico<List<TaxasModel>>();
+            using (var client = new HttpClient()) {
+                var responseBrasilApi = await client.SendAsync(request);
+                var contentResp = await responseBrasilApi.Content.ReadAsStringAsync();
+                var objResponse = JsonSerializer.Deserialize<List<TaxasModel>>(contentResp); 
+
+                if (responseBrasilApi.IsSuccessStatusCode) 
+                {    
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.DadosRetorno = objResponse;
+                }
+                else 
+                {
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                }
+            }
+            return response;
+        }
+
+         public async Task<ResponseGenerico<TaxasModel>> BuscarTaxas(string sigla)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/taxas/v1/{sigla}");
+            
+            var response = new ResponseGenerico<TaxasModel>();
+            using (var client = new HttpClient()) {
+                var responseBrasilApi = await client.SendAsync(request);
+                var contentResp = await responseBrasilApi.Content.ReadAsStringAsync();
+                var objResponse = JsonSerializer.Deserialize<TaxasModel>(contentResp); 
+
+                if (responseBrasilApi.IsSuccessStatusCode) 
+                {    
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.DadosRetorno = objResponse;
+                }
+                else 
+                {
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                }
+            }
+            return response;
+        }
+        
     }
 }

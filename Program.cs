@@ -1,4 +1,5 @@
 using IntegraBrasilApi.interfaces;
+using IntegraBrasilApi.Mapping;
 using IntegraBrasilApi.Mappings;
 using IntegraBrasilApi.Rest;
 using IntegraBrasilApi.Services;
@@ -14,10 +15,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IEnderecoService, EnderecoService>();
 builder.Services.AddSingleton<IBancoService, BancoService>();
+builder.Services.AddSingleton<ITaxasService, TaxasService>();
 builder.Services.AddSingleton<IBrasilApi, BrasilApiRest>();
 
 builder.Services.AddAutoMapper(typeof(EnderecoMapping));
 builder.Services.AddAutoMapper(typeof(BancoMapping));
+builder.Services.AddAutoMapper(typeof(TaxasMapping));
 
 var app = builder.Build();
 
