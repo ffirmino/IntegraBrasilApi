@@ -16,11 +16,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IEnderecoService, EnderecoService>();
 builder.Services.AddSingleton<IBancoService, BancoService>();
 builder.Services.AddSingleton<ITaxasService, TaxasService>();
+builder.Services.AddSingleton<INcmsService, NcmsService>();
 builder.Services.AddSingleton<IBrasilApi, BrasilApiRest>();
 
 builder.Services.AddAutoMapper(typeof(EnderecoMapping));
 builder.Services.AddAutoMapper(typeof(BancoMapping));
 builder.Services.AddAutoMapper(typeof(TaxasMapping));
+builder.Services.AddAutoMapper(typeof(NcmsMapping));
 
 var app = builder.Build();
 

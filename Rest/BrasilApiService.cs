@@ -127,6 +127,54 @@ namespace IntegraBrasilApi.Rest
             }
             return response;
         }
+
+        public async Task<ResponseGenerico<List<NcmsModel>>> BuscarTodasNcms()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/ncm/v1");
+            
+            var response = new ResponseGenerico<List<NcmsModel>>();
+            using (var client = new HttpClient()) {
+                var responseBrasilApi = await client.SendAsync(request);
+                var contentResp = await responseBrasilApi.Content.ReadAsStringAsync();
+                var objResponse = JsonSerializer.Deserialize<List<NcmsModel>>(contentResp); 
+
+                if (responseBrasilApi.IsSuccessStatusCode) 
+                {    
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.DadosRetorno = objResponse;
+                }
+                else 
+                {
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                }
+            }
+            return response;
+        }
+
+         public async Task<ResponseGenerico<NcmsModel>> BuscarNcms(string codigoNcms)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/ncm/v1/{codigoNcms}");
+            
+            var response = new ResponseGenerico<NcmsModel>();
+            using (var client = new HttpClient()) {
+                var responseBrasilApi = await client.SendAsync(request);
+                var contentResp = await responseBrasilApi.Content.ReadAsStringAsync();
+                var objResponse = JsonSerializer.Deserialize<NcmsModel>(contentResp); 
+
+                if (responseBrasilApi.IsSuccessStatusCode) 
+                {    
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.DadosRetorno = objResponse;
+                }
+                else 
+                {
+                    response.CodigoHttp = responseBrasilApi.StatusCode;
+                    response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(contentResp);
+                }
+            }
+            return response;
+        }
         
     }
 }

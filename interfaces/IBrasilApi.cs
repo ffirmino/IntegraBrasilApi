@@ -10,5 +10,8 @@ namespace IntegraBrasilApi.interfaces
         Task<ResponseGenerico<BancoModel>> BuscarBanco(string codigoBanco);
         Task<ResponseGenerico<TaxasModel>> BuscarTaxas(string sigla);
         Task<ResponseGenerico<List<TaxasModel>>> BuscarTodasTaxas();
+        Task<ResponseGenerico<NcmsModel>> BuscarNcms(string codigoNcms);
+        Task<ResponseGenerico<List<NcmsModel>>> BuscarTodasNcms();
+        
     }
 }
